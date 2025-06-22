@@ -1,13 +1,13 @@
-  const express = require("express")
-  const router = express.Router()
+    const express = require("express")
+    const router = express.Router()
 
-  const { addUser, findAllUser } = require("../controllers/userControllers");
-
-
-
-  router.post("/", addUser);
-  router.get("/", findAllUser);
+    const { addUser, findAllUser } = require("../controllers/userControllers");
 
 
 
-  module.exports = router
+    router.post("/addUser", addUser);
+    router.get("/findAllUser", findAllUser);
+
+
+
+    module.exports = router

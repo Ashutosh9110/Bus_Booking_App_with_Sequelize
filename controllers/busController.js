@@ -3,14 +3,14 @@ const { Op } = require("sequelize")
 
 const addBuses = async (req, res) => {
   try {
-    const { totalSeats, availableSeats  } = req.body
+    const { busNumber, totalSeats, availableSeats  } = req.body
 
-    if (!totalSeats || !availableSeats) {
+    if (!totalSeats || !availableSeats || !busNumber) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
     const newBus = await Buses.create({
-      totalSeats, availableSeats
+      busNumber, totalSeats, availableSeats
     })  
     res.status(201).json(newBus)
   } catch (error) {
